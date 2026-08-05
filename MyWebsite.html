@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<title>My Website</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<style>
+		
+		{
+			box-sizing: border-box;
+		}
+
+		@media (max-width: 768px) {
+
+			.section1 div,
+			.last_section .div2 {
+				width: 90%;
+				height: auto;
+				min-height: 100vh;
+			}
+
+			.section1,
+			.section2,
+			.section3 {
+				background-attachment: scroll;
+			}
+
+			#home h1 {
+				font-size: 32px;
+			}
+
+			#home p {
+				font-size: 18px;
+			}
+
+			img {
+				height: auto;
+				max-width: 100%;
+			}
+
+			.my_photo {
+				margin-bottom: 40px;
+			}
+
+			#Introduction .subtitle,
+			#Introduction .intro {
+				margin-bottom: 40px;
+			}
+		}
+
+		/* Homepage settings */
+
+		#home {
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background-image: url(nightsky.jpg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding: 2rem;
+			font-family: sans-serif;
+		}
+
+		#home h1 {
+			font-size: 52px;
+			font-weight: 500;
+			color: white;
+			text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+			margin: 0 0 12px;
+			letter-spacing: -1px;
+		}
+
+		#home p {
+			font-size: 28px;
+			color: palevioletred;
+			margin: 32px;
+		}
+
+		#home a {
+			padding: 12px 28px;
+			border: 3px solid;
+			border-radius: 8px;
+			color: white;
+			text-decoration: none;
+			font-size: 15px;
+		}
+
+		/* Logo position */
+
+		.logo {
+			position: absolute;
+			top: 20px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.name {
+			font-size: 50;
+			color: lightseagreen;
+			font-size: 15px opacity: 0.8;
+			margin-top: -10px;
+		}
+
+		.name span {
+			color: #4a90d9;
+		}
+
+		.logo {}
+
+
+		/* Glowing Button */
+
+		.Button1 {
+			padding: 15px 60px;
+			font-size: 32px;
+			border: none;
+			outline: none;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			z-index: 0;
+			border-radius: 16px;
+			margin-top: 30px;
+		}
+
+		.Button1::after {
+			content: "";
+			z-index: -1;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #333;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+		}
+
+		.Button1::before {
+			content: "";
+			background: linear-gradient(45deg,
+					#ff5050, #ff8533, #ffcc00, #99cc00,
+					#00cc99, #4d79ff, #ff66cc, #9966ff);
+
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background-size: 600%;
+			z-index: -1;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			filter: blur(8px);
+			animation: glowing 20s linear infinite;
+			transition: opacity .3s ease-in-out;
+			transition: opacity .3s ease-in-out;
+			border-radius: 10px;
+			opacity: 1;
+		}
+
+		@keyframes glowing {
+			0% {
+				background-position: 0 0;
+			}
+
+			50% {
+				background-position: 400% 0;
+			}
+
+			100% {
+				background-position: 0 0;
+			}
+		}
+
+		.Button1:hover::before {
+			opacity: 1;
+		}
+
+		.Button1:active::after {
+			background: transparent;
+		}
+
+		.Button1:active {
+			color: black;
+			font-weight: bold;
+		}
+
+
+		/* Page 2 Setting */
+
+
+		#Introduction {
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			padding: 60px 40px;
+			background-color: lightgray;
+		}
+
+		/* Photo placeholder */
+
+		.my_photo {
+			flex: 0 0 220px;
+			width: 220px;
+			height: 220px;
+			border-radius: 50%;
+			background: #1a1a2e;
+			border: 5px solid #4a90d9;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 4rem;
+			color: #4a90d9;
+			overflow: hidden;
+			margin-bottom: 100px;
+		}
+
+		#Introduction .subtitle {
+			font-size: 28px;
+			color: black;
+			font-style: italic;
+			margin-bottom: 100px;
+		}
+
+		#Introduction .intro {
+			font-size: 20px;
+			color: black;
+			line-height: 1.8;
+			max-width: 600px;
+		}
+
+		/* Page 3 background */
+
+		.section1 {
+			background-image: url('10554.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			text-align: center;
+		}
+
+		.section1 div {
+			width: 40%;
+			height: 100vh;
+			border: 20px solid black;
+			margin: auto;
+			background-color: black;
+			opacity: 0.8;
+			padding-top: -15px;
+			padding-bottom: 50px;
+		}
+
+		.section1 h1 {
+			color: cadetblue;
+		}
+
+		p {
+			text-align: left;
+			color: white;
+			font-size: 18px;
+			margin-top: 20px;
+		}
+
+		/* Page 4 settings */
+
+		.section2 {
+			min-height: 100vh;
+			background-image: url('sunset.jpg');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 60px 20px;
+		}
+
+		.section2-inner {
+			text-align: center;
+			width: 100%;
+			max-width: 900px;
+		}
+
+		.enjoy-grid {
+			display: grid;
+			grid-template-rows: repeat(4, 1fr);
+			margin-top: 32px;
+		}
+
+		.enjoy-card {
+			background: rgba(0, 0, 0, 0.6);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 16px;
+			padding: 32px 16px;
+			margin: 10px;
+			color: white;
+			font-size: 40px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			cursor: default;
+			transition: transform 0.3s, background 0.3s;
+		}
+
+		.enjoy-card span {
+			font-size: 16px;
+			color: white;
+			letter-spacing: 0.5px;
+		}
+
+		.enjoy-card:hover {
+			transform: translateY(-8px);
+			background: rgba(0, 179, 179, 0.5);
+			border-color: #00b3b3;
+		}
+
+		.section3 {
+			height: 100vh;
+			display: flex;
+			flex-direction: row;
+			padding: 0;
+			margin: 0;
+		}
+
+
+		/* Page 5 settings */
+
+		.section3 {
+			margin: 0px auto;
+			width: 100%;
+			display: flex;
+			overflow-x: auto;
+			background-image: url(dark.jpg);
+		}
+
+		.div3 {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			grid-gap: 2.5em;
+		}
+
+		.image {
+			flex: 0 0 10em;
+			height: 10em;
+			display: flex;
+			flex-direction: column;
+			padding: 1em;
+			font-size: 3rem;
+			text-align: center;
+		}
+
+		.image img {
+			width: 100%;
+			height: 75%;
+			object-fit: cover;
+			display: block;
+			border-radius: 1em;
+		}
+
+		.caption {
+			font-size: 18px;
+			color: lightgray;
+			line-height: 1.5;
+			padding: 3px;
+		}
+
+		.caption strong {
+			color: white;
+			font-weight: 700;
+		}
+
+		/* Page 6 settings*/
+
+		body {
+			background: #99ccff;
+			font-family: sans-serif;
+		}
+
+		#skills {
+			width: 100%;
+			padding: 100px 60px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+		}
+
+		.skills-title {
+			font-family: serif;
+			› color: white;
+			font-size: 4rem;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.skills-grid {
+			display: grid;
+			grid-gap: 24px;
+			max-width: 980px;
+			justify-content: center;
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		.skill-category {
+			background: #cc6699;
+			border: 5px solid #006699;
+			border-radius: 16px;
+			padding: 24px 20px;
+			min-height: 230px;
+			transition: 0.25s, transform 0.25s;
+		}
+
+		.skill-category:hover {
+			border-color: #cc6699;
+			transform: translateY(-10px);
+		}
+
+		.skill-category-header {
+			display: flex;
+			align-items: center;
+			grid-gap: 12px;
+			margin-bottom: 22px;
+		}
+
+		.skill-icon {
+			width: 38px;
+			height: 38px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 19px;
+			flex-shrink: 0;
+		}
+
+		.icon-lang {
+			background: #666699;
+		}
+
+		.icon-tools {
+			background: #666699;
+		}
+
+		.icon-methods {
+			background: #666699;
+		}
+
+		.skill-category h3 {
+			color: white;
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.skill-tags {
+			display: flex;
+			flex-wrap: wrap;
+			grid-gap: 8px;
+		}
+
+		.skill-tag {
+			font-size: 18px;
+			color: #cfd2db;
+			background: #1d1d31;
+			padding: 14px 18px;
+			border-radius: 8px;
+			border: 1px solid #2a2a45;
+			transition: background 0.2s, color 0.2s;
+		}
+
+		.skill-category:hover .skill-tag {
+			border-color: #33345a;
+		}
+
+		.skill-tag:hover {
+			background: #4a90d9;
+			color: white;
+			border-color: #4a90d9;
+		}
+
+
+		/* Last section settings */
+
+		.last_section {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			margin: 0;
+		}
+
+		.half-white {
+			flex: 1;
+			background: white;
+			color: #222;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 32px 0 0 0;
+		}
+
+		.half-black {
+			flex: 0.3;
+			background: rgba(0, 0, 0, 0.9);
+			color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 30px 0 0 0;
+		}
+
+		.half-black h2,
+		.half-black h3,
+		.half-black h4 {
+			color: whitesmoke;
+			text-align: center;
+			margin-bottom: 16px;
+		}
+
+
+		h2 {
+			font-size: 24px;
+			color: chocolate;
+			text-align: center;
+			margin-top: -10px;
+		}
+
+		.H2 {
+			text-align: center;
+			font-size: 40px;
+			color: chocolate;
+		}
+
+		hr {
+			border: none;
+			border-top: 3px solid #44bcb2;
+			margin: 16px 0 30px 0;
+		}
+
+		h3,
+		h4 {
+			text-align: left;
+			color: black;
+			font-size: 18px;
+		}
+
+		h5 {
+			font-size: 24px;
+			color: chocolate;
+			text-align: center;
+			margin-top: 40px;
+		}
+
+		.hr1 {
+			border: none;
+			border-top: 3px solid #ccc;
+			margin: 30px 0;
+		}
+
+		h6 {
+			text-align: left;
+			color: white;
+			font-size: 18px;
+			margin-top: 10px;
+		}
+
+		.H6 {
+			text-align: left;
+			color: white;
+			font-size: 18px;
+
+		}
+
+		.achievement {
+			text-align: center;
+			font-size: 35px;
+			color: lightseagreen;
+		}
+
+		.hr2 {
+			border: none;
+			border-top: 3px solid #ccc;
+			margin: 30px 0;
+		}
+
+		.achievements-list {
+			color: white;
+			font-size: 21px;
+			text-align: center;
+			list-style-type: none;
+			padding-left: 32px;
+			margin-top: 16px;
+		}
+
+		.achievements-list li {
+			margin-bottom: 120px;
+		}
+
+		img {
+			height: 330px;
+			margin-top: -20px;
+		}
+
+
+		.half-white H1 {
+			font-size: 40px;
+			text-align: center;
+			margin-top: 25px;
+			color: steelblue;
+			background-color: white;
+		}
+
+		.half-white .fun-facts {
+			font-size: 20px;
+			text-align: center;
+			margin-top: -10px;
+			color: black;
+			line-height: 1.6;
+			padding: 0 40px;
+			max-width: 700px;
+		}
+
+		.last_section .div2 {
+			width: 40%;
+			height: 100vh;
+			border: 20px solid black;
+			margin: auto;
+			background-color: black;
+			opacity: 0.8;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+
+		.contact-grid {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		.contact-card {
+			background: rgba(255, 255, 255, 0.07);
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			border-radius: 14px;
+			padding: 24px 20px;
+			margin: 10px;
+			width: 160px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-decoration: none;
+			transition: transform 0.3s, background 0.3s;
+		}
+
+		.contact-card i {
+			font-size: 32px;
+			margin-bottom: 10px;
+		}
+
+		.contact-label {
+			font-size: 13px;
+			color: #aaa;
+			margin-bottom: 4px;
+		}
+
+		.contact-value {
+			font-size: 13px;
+			color: white;
+			text-align: center;
+			word-break: break-all;
+		}
+
+		.contact-card:hover {
+			transform: translateY(-5px);
+			background: rgba(255, 255, 255, 0.15);
+			border-color: #44bcb2;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<section id="home">
+
+		<img src="logo.jpg" class="logo">
+		<h1 class="name">Hi! I'm <span>JinHan Liu</span></h1>
+
+		<p>Welcome to my website!</p>
+		<button type="button" class="Button1">See my work below</button>
+
+	</section>
+
+
+	<section id="Introduction">
+
+		<div class="my_photo"> JL </div>
+
+		<p class="subtitle">Incoming BSc Statistics Student - Univeristy of Toronto Scaraborough - September 2025</p>
+
+		<p class="intro">I'm excited to combine math, coding with real world data to build things that could contribute to our real life. This website is my first step!</p>
+
+	</section>
+
+	<section class="section1">
+
+		<div>
+			<h1>FIRST Robotic team</h1>
+			<hr class="hr1">
+			<h5>Team Awards</h5>
+			<h6>Niagara College Rookie All-star award 2024</h6>
+			<h6 class="H6">Ontario Provincial Champion Rising All-star award 2024</h6>
+			<p>Viper is a robotics club I founded alongside community members and families,
+				After establishment, we competed in various competitions, such as FIRST Regionals, FIRST Ontario Provincial Championship, and the Ontario District Niagara College Event.
+				Alongside my teammates, we were able to bring home various awards outlined under my “achievements section”, as well as grow fundamentally as coders, robotics enthusiasts, and team players.
+			</p>
+			<img src="Viper.png" class="viper-img">
+		</div>
+
+	</section>
+
+
+	<section class="section2">
+		<div class="section2-inner">
+			<h1 class="achievement">Things I enjoy outside of school</h1>
+			<hr class="hr2">
+			<div class="enjoy-grid">
+				<div class="enjoy-card">💼<span>Business Program</span></div>
+				<div class="enjoy-card">🏊<span>Life Guard</span></div>
+				<div class="enjoy-card">🎻<span>Violin</span></div>
+				<div class="enjoy-card">🎸<span>Guitar</span></div>
+				<div class="enjoy-card">📐<span>Math</span></div>
+				<div class="enjoy-card">🏀<span>Basketball</span></div>
+				<div class="enjoy-card">⛷️<span>Skiing</span></div>
+				<div class="enjoy-card">🏸<span>Badminton</span></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section3">
+		<div class="div3">
+
+			<div class="image"><img src="ai.jpg" alt="rural area">
+				<p class="caption"><strong>AI is </strong>built on statistics, because it use data, probability and models to learn patterns, make predictions, and improve its decisions.</p>
+			</div>
+
+			<div class="image"><img src="stats.jpg">
+				<p class="caption"><strong>Statistics helps </strong>turn raw data into meaningful information by identifying patterns, measuring uncertainty, and making predictions.</p>
+			</div>
+
+			<div class="image"><img src="coding.jpg">
+				<p class="caption"><strong>Statistics and coding works together </strong>because coding is used to collect, analyze, and visualize data, while statistics provides the methods for interpreting the results.</p>
+			</div>
+
+			<div class="image"><img src="earth.jpg">
+				<p class="caption"><strong>Statistics plays a significant role </strong>in the world, it help governments, business, and researchers make decisions based one evidence rather than guesswork.</p>
+			</div>
+
+			<div class="image"><img src="solar.jpg">
+				<p class="caption"><strong>Renewable energy relies </strong>on statistics to study weather patterns, forecast energy output, and optimize the use of resources such as solar and wind power.</p>
+			</div>
+		</div>
+
+	</section>
+
+
+	<section class="section4">
+
+		<h2 class="skills-title">My Skills</h2>
+
+		<div class="skills-grid">
+
+			<div class="skill-category">
+				<div class="skill-category-header">
+					<div class="skill-icon icon-lang"><i class="ti ti-code"></i></div>
+					<h3>Coding Languages</h3>
+				</div>
+
+				<div class="skill-tags">
+					<span class="skill-tag">Python</span>
+					<span class="skill-tag">Java</span>
+					<span class="skill-tag">HTML and CSS</span>
+				</div>
+			</div>
+
+			<div class="skill-category">
+				<div class="skill-category-header">
+					<div class="skill-icon icon-tools"><i class="ti ti-tools"></i></div>
+					<h3>Tools</h3>
+				</div>
+
+				<div class="skill-tags">
+					<span class="skill-tag">Excel</span>
+					<span class="skill-tag">Google sheet</span>
+					<span class="skill-tag">Brackets</span>
+					<span class="skill-tag">GitHub</span>
+					<span class="skill-tag">Pycharm CE</span>
+					<span class="skill-tag">Eclipse</span>
+					<span class="skill-tag">Intellij IDEA</span>
+				</div>
+			</div>
+
+			<div class="skill-category">
+				<div class="skill-category-header">
+					<div class="skill-icon icon-methods"><i class="ti ti-chart-bar"></i></div>
+					<h3>Statistical Methods</h3>
+				</div>
+
+				<div class="skill-tags">
+					<span class="skill-tag">Data analysis</span>
+					<span class="skill-tag">Calculate probability</span>
+					<span class="skill-tag">Communication of data</span>
+					<span class="skill-tag">Data Visualization</span>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<section class="last_section">
+
+		<div class="half-white">
+			<h1 class="H1">Fun facts about me</h1>
+			<section class="fun-facts">My ancestor was called Liu Ji, a renowed chinese military strategist, politican and poet, he is also one of the founder of the Ming dynasty.</section>
+		</div>
+
+		<div class="half-black">
+			<h2>Contacts</h2>
+			<div class="contact-grid">
+				<a href="https://instagram.com/yourusername" class="contact-card">
+					<i class="fa-brands fa-instagram" style="color: rgb(255, 153, 204);"></i>
+					<span class="contact-label">Instagram</span>
+					<span class="contact-value">Deton4tor_1278</span>
+				</a>
+				<a href="https://discord.com" class="contact-card">
+					<i class="fa-brands fa-discord" style="color: rgb(153, 187, 255);"></i>
+					<span class="contact-label">Discord</span>
+					<span class="contact-value">james_cc</span>
+				</a>
+				<a href="#" class="contact-card">
+					<i class="fa-brands fa-weixin" style="color: rgb(71, 209, 71);"></i>
+					<span class="contact-label">WeChat</span>
+					<span class="contact-value">wxid_ijlul8taq59422</span>
+				</a>
+				<a href="mailto:526jamesliu@gmail.com" class="contact-card">
+					<i class="fa-solid fa-envelope" style="color: rgb(214, 214, 194);"></i>
+					<span class="contact-label">Email</span>
+					<span class="contact-value">526jamesliu@gmail.com</span>
+				</a>
+				<a href="tel:5196744728" class="contact-card">
+					<i class="fa-solid fa-phone" style="color: rgb(150, 220, 150);"></i>
+					<span class="contact-label">Phone</span>
+					<span class="contact-value">519 674 4728</span>
+				</a>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+
+</html>
